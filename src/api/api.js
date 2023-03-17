@@ -20,7 +20,7 @@ export const changeCurrency = (amount, from, to) => {
   ).then(response => response.json());
 };
 
-export const getCurrecy = (lat, long) => {
+export const getCurrency = (lat, long) => {
   const apiKey = 'd4683b09d0c94ec0aebf0b2e043decbf';
 
   return fetch(
