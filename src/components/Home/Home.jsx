@@ -53,7 +53,7 @@ const Home = () => {
       <form onSubmit={onFormSubmit}>
         <label>
           <input
-            pattern="^\d+(\.\d+)?\s+\w+\s+in\s+\w+$"
+            pattern="\d+ [a-zA-Z]{3} in [a-zA-Z]{3}"
             type="text"
             name="currency"
             title="10 usd in uah"
