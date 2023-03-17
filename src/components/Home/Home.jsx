@@ -1,4 +1,4 @@
-import { changeCurrency, getCurrecy } from 'components/api/api';
+import { changeCurrency, getCurrency } from 'api/api';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
@@ -15,16 +15,14 @@ const Home = () => {
 
     function success(pos) {
       const crd = pos.coords;
-      // console.log('🚀 ~ file: Home.jsx:17 ~ success ~ crd:', crd);
 
       // console.log('Your current position is:');
       // console.log(`Latitude : ${crd.latitude}`);
       // console.log(`Longitude: ${crd.longitude}`);
       // console.log(`More or less ${crd.accuracy} meters.`);
 
-      getCurrecy(crd.latitude, crd.longitude).then(data => {
-        // console.log(data);
-        console.log(data.results[0].annotations.currency.iso_code);
+      getCurrency(crd.latitude, crd.longitude).then(data => {
+        console.log(data);
         setCurrency(data.results[0].annotations.currency.iso_code);
       });
     }
@@ -58,6 +56,8 @@ const Home = () => {
             pattern="^\d+(\.\d+)?\s+\w+\s+in\s+\w+$"
             type="text"
             name="currency"
+            title="10 usd in uah"
+            defaultValue="1 usd in uah"
           />
         </label>
         <button disabled={loading} type="submit">
